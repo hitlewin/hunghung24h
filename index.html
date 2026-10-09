@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>So Sánh Khoản Vay Online</title>
+<meta name="description" content="So sánh các sản phẩm vay online và tìm lựa chọn phù hợp với nhu cầu của bạn.">
+
+
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
+:root{--primary:#6C5CE7;--primary2:#5746D8;--blue:#5B8DEF;--mint:#19C7A2;--ink:#17203A;--muted:#69758B;--bg:#F7F6FF;--card:#FFFFFF;--line:#E8E5F4}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Be Vietnam Pro',Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+.container{max-width:1120px;margin:auto;padding:0 20px}
+
+.top{background:#17152F;color:#C9C5DE;font-size:10px}
+.top .container{height:32px;display:flex;align-items:center;justify-content:space-between}
+.top strong{color:#FFFFFF}.top-right{display:flex;gap:18px}
+
+header{background:rgba(255,255,255,.9);backdrop-filter:blur(15px);border-bottom:1px solid rgba(233,236,243,.8);position:sticky;top:0;z-index:20}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:9px;font-size:20px;font-weight:800;letter-spacing:-.5px}
+.logo-mark{width:35px;height:35px;border-radius:11px;background:linear-gradient(145deg,#7c6cff,#5145e5);display:grid;place-items:center;color:#FFFFFF;box-shadow:0 8px 20px rgba(103,88,245,.25)}
+.logo span{color:var(--primary)}
+.navlinks{display:flex;align-items:center;gap:25px;font-size:11px;font-weight:700;color:#58647a}
+.navlinks a:hover{color:var(--primary)}
+.nav-btn{background:#17152F;color:#FFFFFF!important;padding:9px 14px;border-radius:8px}
+
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#F0ECFF 0%,#EEF3FF 48%,#E9FFF8 100%);border-bottom:1px solid var(--line)}
+.hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:rgba(108,92,231,.14);right:-210px;top:-270px}
+.hero:after{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:rgba(25,199,162,.11);left:-180px;bottom:-230px}
+.hero-grid{position:relative;z-index:1;min-height:450px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:60px}
+.hero-copy{padding:55px 0}
+.kicker{display:inline-flex;align-items:center;gap:7px;background:#FFFFFF;border:1px solid #DDD7FF;color:#6556e9;padding:7px 11px;border-radius:99px;font-size:9px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;box-shadow:0 5px 15px rgba(80,70,180,.05)}
+.kicker i{width:6px;height:6px;background:#20c997;border-radius:50%}
+.hero h1{font-size:43px;line-height:1.12;letter-spacing:-1.8px;margin:17px 0 13px;max-width:590px}
+.hero h1 span{color:var(--primary)}
+.hero-desc{font-size:13px;color:#68748A;max-width:570px}
+.checks{display:flex;gap:17px;flex-wrap:wrap;margin-top:17px;color:#4f5d75;font-size:10px;font-weight:600}
+.checks span{display:flex;align-items:center;gap:5px}.check{color:#12ad87;font-weight:900}
+.hero-actions{display:flex;gap:9px;margin-top:22px}
+.primary{background:linear-gradient(100deg,#6d5df5,#5746D8);color:#FFFFFF;padding:11px 18px;border-radius:8px;font-size:11px;font-weight:800;box-shadow:0 10px 24px rgba(91,79,225,.22)}
+.secondary{background:#FFFFFF;border:1px solid #dfe3ed;color:#414d64;padding:11px 18px;border-radius:8px;font-size:11px;font-weight:700}
+
+.hero-panel{background:#FFFFFF;border:1px solid #E5E1F2;border-radius:20px;padding:21px;box-shadow:0 22px 55px rgba(38,45,82,.1);max-width:390px;margin-left:auto}
+.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.panel-head b{font-size:13px}.status{font-size:8px;color:#069b78;background:#eafaf5;padding:5px 8px;border-radius:99px;font-weight:800}
+.big-box{border-radius:13px;background:linear-gradient(135deg,#f1efff,#eef5ff);padding:16px;border:1px solid #DED8FF}
+.big-box small{font-size:8px;color:#79859a}.big-box strong{display:block;font-size:25px;color:#5749e8;letter-spacing:-.6px}
+.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}
+.panel-stat{padding:10px;background:#FAF9FF;border:1px solid #EEEAF8;border-radius:9px}.panel-stat small{display:block;color:#99a2b2;font-size:8px}.panel-stat b{font-size:10px}
+.search{display:flex;gap:7px;margin-top:11px}
+.search input{width:100%;border:1px solid #dfe4ed;border-radius:8px;padding:10px 11px;font-size:10px;outline:none}
+.search input:focus{border-color:#8176f7;box-shadow:0 0 0 3px rgba(103,88,245,.1)}
+.search button{border:0;background:#17152F;color:#FFFFFF;padding:0 14px;border-radius:8px;font-size:9px;font-weight:800;cursor:pointer}
+
+.stats-strip{background:#FFFFFF;border-bottom:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-item{padding:18px 12px;text-align:center;border-right:1px solid var(--line)}.stat-item:last-child{border:0}
+.stat-item b{display:block;font-size:16px;color:#252e48}.stat-item span{font-size:9px;color:#8A859B}
+
+.section{padding:54px 0}
+.section-head{text-align:center;margin-bottom:24px}
+.eyebrow{color:var(--primary);font-size:9px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase}
+.section-head h2{font-size:27px;letter-spacing:-.8px;margin-top:4px}.section-head p{font-size:10px;color:var(--muted);margin-top:3px}
+.underline{width:42px;height:3px;background:linear-gradient(90deg,var(--primary),var(--mint));border-radius:99px;margin:9px auto 0}
+.filters{display:flex;justify-content:center;gap:7px;margin-bottom:20px;flex-wrap:wrap}
+.filter{border:1px solid var(--line);background:#FFFFFF;color:#667085;padding:7px 12px;border-radius:99px;font-size:9px;font-weight:700;cursor:pointer}
+.filter.active,.filter:hover{background:#6C5CE7;color:#FFFFFF;border-color:#6C5CE7}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{background:#FFFFFF;border:1px solid var(--line);border-radius:14px;padding:17px;box-shadow:0 5px 17px rgba(31,42,68,.04);transition:.22s;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#7567f7,#4b9aff,#24c9a6)}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 35px rgba(31,42,68,.09)}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.tag{background:#EEEBFF;color:#5d50e9;padding:5px 8px;border-radius:5px;font-size:8px;font-weight:800}.rating{color:#f59e0b;font-size:9px;font-weight:800}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:8px}.brand-icon{width:41px;height:41px;border-radius:11px;background:linear-gradient(145deg,#EEEBFF,#EDF5FF);color:#5c50e9;display:grid;place-items:center;font-size:11px;font-weight:800}.brand h3{font-size:15px}
+.desc{font-size:9px;color:#74708A;min-height:30px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:12px 0}.info{background:#F8F7FD;border-radius:7px;padding:8px}.info small{display:block;color:#98a2b3;font-size:7px}.info b{font-size:10px}
+.card-btn{display:block;text-align:center;background:linear-gradient(100deg,#6C5CE7,#4e46e5);color:#FFFFFF;padding:10px;border-radius:7px;font-size:9px;font-weight:800;box-shadow:0 7px 15px rgba(103,88,245,.16)}
+.card-btn:hover{filter:brightness(1.06)}
+.note{margin-top:17px;padding:11px 13px;background:#FFFFFF;border:1px solid var(--line);border-radius:8px;color:#76738A;font-size:8px}
+
+.compare{background:#FFFFFF;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;min-width:650px}th,td{padding:11px 12px;text-align:left;border-bottom:1px solid #edf0f5;font-size:9px}th{background:#F7F6FF;color:#79869a;font-size:8px;text-transform:uppercase}td strong{font-size:10px}.table-btn{color:#5b50e8;font-weight:800}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.step{background:#FFFFFF;border:1px solid var(--line);border-radius:13px;padding:20px}.step-no{width:31px;height:31px;border-radius:9px;background:#EEEBFF;color:#5b50e8;display:grid;place-items:center;font-weight:800;font-size:11px;margin-bottom:12px}.step h3{font-size:12px;margin-bottom:4px}.step p{font-size:9px;color:#76738A}
+
+.faq{max-width:820px;margin:auto}.faq-item{background:#FFFFFF;border:1px solid var(--line);border-radius:9px;margin-bottom:8px;padding:13px}.faq-item summary{font-size:10px;font-weight:700;cursor:pointer}.faq-item p{font-size:9px;color:#778398;margin-top:7px}
+
+.about{background:linear-gradient(135deg,#171a37,#27245a);color:#FFFFFF;border-radius:18px;padding:30px;text-align:center}.about h2{font-size:23px}.about p{font-size:9px;color:#aeb3ca;max-width:750px;margin:7px auto}
+
+footer{background:#11142a;color:#8f98b0;padding:35px 0}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}footer h3,footer h4{color:#FFFFFF;margin-bottom:8px}footer h3{font-size:17px}footer p,footer a{font-size:9px}footer a{display:block;margin:5px 0}footer a:hover{color:#FFFFFF}.copy{border-top:1px solid rgba(255,255,255,.08);margin-top:22px;padding-top:12px;font-size:8px}
+
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr;min-height:auto}.hero-copy{padding:48px 0 20px}.hero-panel{max-width:none;margin:0 0 45px}.cards{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.top-right,.navlinks{display:none}.hero h1{font-size:32px}.hero-actions{flex-direction:column}.stats-grid{grid-template-columns:1fr 1fr}.stat-item:nth-child(2){border:0}.cards,.steps{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.section{padding:42px 0}}
+</style>
+
+
+
+
+
+<style id="dark-card-override">
+/* Dark premium partner cards */
+.partner-card,
+.loan-card,
+.offer-card {
+  background: linear-gradient(145deg, #20234a 0%, #171a38 100%) !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,.10) !important;
+  box-shadow: 0 18px 40px rgba(30,25,80,.16) !important;
+}
+.partner-card:hover,
+.loan-card:hover,
+.offer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 50px rgba(30,25,80,.25) !important;
+}
+.partner-card h3,
+.loan-card h3,
+.offer-card h3,
+.partner-card .title,
+.loan-card .title,
+.offer-card .title {
+  color: #fff !important;
+}
+.partner-card p,
+.loan-card p,
+.offer-card p,
+.partner-card .muted,
+.loan-card .muted,
+.offer-card .muted {
+  color: #c9cbed !important;
+}
+.partner-card .meta,
+.loan-card .meta,
+.offer-card .meta,
+.partner-card .info,
+.loan-card .info,
+.offer-card .info {
+  color: #d9dbf2 !important;
+}
+.partner-card .badge,
+.loan-card .badge,
+.offer-card .badge {
+  background: rgba(108,92,231,.20) !important;
+  color: #b9afff !important;
+  border-color: rgba(160,148,255,.25) !important;
+}
+.partner-card .rating,
+.loan-card .rating,
+.offer-card .rating {
+  color: #ffd86b !important;
+}
+.partner-card .logo,
+.loan-card .logo,
+.offer-card .logo {
+  background: linear-gradient(135deg, #6c5ce7, #5b8def) !important;
+  color: #fff !important;
+}
+.partner-card .btn,
+.loan-card .btn,
+.offer-card .btn,
+.partner-card a.cta,
+.loan-card a.cta,
+.offer-card a.cta {
+  background: linear-gradient(135deg, #6c5ce7, #5b8def) !important;
+  color: #fff !important;
+  border: 0 !important;
+}
+.partner-card .btn:hover,
+.loan-card .btn:hover,
+.offer-card .btn:hover,
+.partner-card a.cta:hover,
+.loan-card a.cta:hover,
+.offer-card a.cta:hover {
+  filter: brightness(1.08);
+}
+
+/* If the cards use common project classes */
+.card-dark {
+  background: linear-gradient(145deg, #20234a, #171a38) !important;
+  color: #fff !important;
+}
+</style>
+
+
+<style id="dark-theme-v2">
+:root{
+  --bg:#020817;
+  --bg2:#061126;
+  --panel:#07172d;
+  --panel2:#0a1d38;
+  --line:rgba(52,150,255,.24);
+  --cyan:#11bfff;
+  --blue:#267cff;
+  --purple:#7b4dff;
+  --mint:#20e0d0;
+  --text:#f5f8ff;
+  --muted:#8fa7c5;
+}
+
+/* Full dark background */
+html,body{
+  background:
+    radial-gradient(circle at 72% 20%, rgba(0,119,255,.12), transparent 28%),
+    radial-gradient(circle at 20% 65%, rgba(20,80,180,.08), transparent 30%),
+    #020817 !important;
+  color:var(--text) !important;
+}
+body{
+  background-color:#020817 !important;
+}
+
+/* Main sections */
+section, main, .section, .container-section{
+  background:transparent !important;
+  color:var(--text) !important;
+}
+header, nav, .topbar{
+  background:rgba(2,10,24,.94) !important;
+  border-color:rgba(55,145,255,.16) !important;
+}
+footer{
+  background:#010611 !important;
+  color:#d8e5f7 !important;
+}
+
+/* Hero */
+.hero{
+  background:
+    radial-gradient(circle at 72% 45%, rgba(0,132,255,.20), transparent 31%),
+    radial-gradient(circle at 90% 25%, rgba(30,70,190,.15), transparent 32%),
+    linear-gradient(120deg,#020817 0%,#06142a 52%,#071538 100%) !important;
+}
+.hero h1,.hero h2,.hero h3{
+  color:#f7faff !important;
+}
+.hero p{
+  color:#9db4d2 !important;
+}
+
+/* Dark cards */
+.partner-card,.loan-card,.offer-card,.card{
+  background:
+    radial-gradient(circle at 90% 0%, rgba(20,125,255,.11), transparent 32%),
+    linear-gradient(145deg,#091a32 0%,#061326 100%) !important;
+  color:#f5f8ff !important;
+  border:1px solid rgba(27,142,255,.32) !important;
+  box-shadow:0 14px 35px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.025) !important;
+}
+.partner-card:hover,.loan-card:hover,.offer-card:hover,.card:hover{
+  border-color:rgba(26,177,255,.7) !important;
+  box-shadow:0 18px 45px rgba(0,106,255,.18),0 0 28px rgba(0,145,255,.08) !important;
+}
+.partner-card h3,.loan-card h3,.offer-card h3,.card h3{
+  color:#fff !important;
+}
+.partner-card p,.loan-card p,.offer-card p,.card p,
+.partner-card .muted,.loan-card .muted,.offer-card .muted,.card .muted{
+  color:#91a9c7 !important;
+}
+.partner-card .badge,.loan-card .badge,.offer-card .badge{
+  background:rgba(22,130,255,.10) !important;
+  color:#38bfff !important;
+  border:1px solid rgba(35,157,255,.25) !important;
+}
+.partner-card .logo,.loan-card .logo,.offer-card .logo{
+  background:linear-gradient(135deg,#146eff,#16c5ff) !important;
+  color:#fff !important;
+}
+.partner-card .btn,.loan-card .btn,.offer-card .btn,
+.partner-card a.cta,.loan-card a.cta,.offer-card a.cta{
+  background:linear-gradient(100deg,#08baf4 0%,#267cff 48%,#7546f5 100%) !important;
+  color:white !important;
+  border:none !important;
+  box-shadow:0 7px 22px rgba(26,116,255,.24) !important;
+}
+
+/* Search/filter controls */
+input,select,.search,.filter,.search-box{
+  background:#07162b !important;
+  color:#eaf3ff !important;
+  border-color:rgba(52,150,255,.25) !important;
+}
+input::placeholder{color:#607895 !important;}
+
+/* Comparison table */
+table{
+  background:#061326 !important;
+  color:#e9f2ff !important;
+  border-color:rgba(52,150,255,.2) !important;
+}
+th{
+  background:#0a1b34 !important;
+  color:#64cfff !important;
+}
+td{
+  background:#061326 !important;
+  color:#c5d5e9 !important;
+  border-color:rgba(52,150,255,.12) !important;
+}
+
+/* Stats / small panels */
+.stat,.stat-card,.feature,.step,.faq-item,.about-card{
+  background:linear-gradient(145deg,#07182e,#061226) !important;
+  color:#eef6ff !important;
+  border-color:rgba(46,145,255,.22) !important;
+}
+.stat strong,.stat-card strong{
+  color:#fff !important;
+}
+.stat span,.stat-card span{
+  color:#7f9aba !important;
+}
+
+/* Accent text */
+.accent,.highlight{
+  color:#13c4ff !important;
+}
+.gradient-text{
+  background:linear-gradient(90deg,#16bfff,#27d8dd,#744cff) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  color:transparent !important;
+}
+
+/* Section headings */
+section h2,section h3{
+  color:#f4f8ff !important;
+}
+section .eyebrow,section .kicker{
+  color:#20bfff !important;
+}
+
+/* FAQ */
+.faq-item summary,.faq-item h3{
+  color:#f1f6ff !important;
+}
+.faq-item p{
+  color:#8da6c4 !important;
+}
+
+/* Glowing decorative feel */
+.hero::before{
+  opacity:.7 !important;
+}
+</style>
+
+
+<style id="dark-inner-panels">
+/* Đổi toàn bộ các ô trắng bên trong card/panel sang dark */
+.card .info,
+.partner-card .info,
+.loan-card .info,
+.offer-card .info,
+.info-grid .info {
+  background: linear-gradient(145deg, #0b203b 0%, #07162c 100%) !important;
+  border: 1px solid rgba(42, 151, 255, .22) !important;
+  color: #a9bed8 !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.025) !important;
+}
+
+.card .info strong,
+.card .info b,
+.card .info span,
+.card .info small,
+.card .info label {
+  color: #d7e7fa !important;
+}
+
+/* Hero loan calculator panel */
+.hero-panel,
+.hero-panel .big-box,
+.hero-panel .panel-stat,
+.panel,
+.big-box,
+.panel-stat {
+  background: linear-gradient(145deg, #081a33 0%, #061326 100%) !important;
+  color: #eef6ff !important;
+  border-color: rgba(43, 151, 255, .24) !important;
+}
+
+.hero-panel .big-box {
+  box-shadow: inset 0 0 30px rgba(41, 104, 255, .07) !important;
+}
+
+.hero-panel .big-box strong,
+.hero-panel .big-box b {
+  color: #7c63ff !important;
+}
+
+.hero-panel .panel-stat strong,
+.hero-panel .panel-stat b {
+  color: #f2f7ff !important;
+}
+
+.hero-panel .panel-stat span,
+.hero-panel .panel-stat small {
+  color: #7892b1 !important;
+}
+
+/* Search box in hero */
+.search,
+.search input,
+.search-box,
+.search-box input {
+  background: #07172d !important;
+  color: #eaf4ff !important;
+  border-color: rgba(38, 143, 255, .30) !important;
+}
+.search input::placeholder,
+.search-box input::placeholder {
+  color: #6f88a7 !important;
+}
+
+/* Any remaining light utility boxes */
+.filters .filter,
+.filter {
+  background: #081a31 !important;
+  color: #9eb7d3 !important;
+  border-color: rgba(38,143,255,.24) !important;
+}
+.filters .filter.active,
+.filter.active {
+  background: linear-gradient(100deg,#0bbcf4,#4c63ff) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+
+/* Brand/icon boxes stay dark */
+.brand-icon {
+  background: linear-gradient(145deg,#eef3ff,#dce8ff) !important;
+  color: #4c58e8 !important;
+}
+
+/* Prevent generic white card interiors */
+.card * {
+  --inner-bg: #081a31;
+}
+</style>
+
+</head>
+<body><div class="top"><div class="container"><div>✦ <strong>Nền tảng so sánh khoản vay online</strong></div><div class="top-right"><span>✓ Miễn phí tham khảo</span><span>◷ Hỗ trợ 24/7</span></div></div></div>
+<header><div class="container nav">
+<a class="logo" href="#"><span class="logo-mark">V</span>Vay<span>Online</span></a>
+<nav class="navlinks"><a href="#offers">Đối tác</a><a href="#compare">So sánh</a><a href="#how">Cách hoạt động</a><a href="#faq">FAQ</a><a class="nav-btn" href="#offers">Xem khoản vay →</a></nav>
+</div></header>
+
+<section class="hero"><div class="container hero-grid">
+<div class="hero-copy">
+<div class="kicker"><i></i> NỀN TẢNG THAM KHẢO TÀI CHÍNH</div>
+<h1>So sánh khoản vay online <span>nhanh chóng & minh bạch</span></h1>
+<p>Khám phá các sản phẩm vay trực tuyến từ nhiều đối tác và tham khảo những thông tin quan trọng trước khi đăng ký.</p>
+<div class="checks"><span><b class="check">✓</b> Đăng ký trực tuyến</span><span><b class="check">✓</b> Thông tin rõ ràng</span><span><b class="check">✓</b> Bảo mật</span></div>
+<div class="hero-actions"><a class="primary" href="#offers">Xem khoản vay →</a><a class="secondary" href="#compare">So sánh nhanh</a></div>
+</div>
+<div class="hero-panel">
+<div class="panel-head"><b>Khoản vay phù hợp cho bạn</b><span class="status">● TRỰC TUYẾN</span></div>
+<div class="big-box"><small>Hạn mức tham khảo</small><strong>500.000đ — 30.000.000đ</strong></div>
+<div class="panel-grid"><div class="panel-stat"><small>Thời hạn</small><b>3 — 18 tháng</b></div><div class="panel-stat"><small>Đăng ký</small><b>100% online</b></div><div class="panel-stat"><small>Hồ sơ</small><b>Tùy đối tác</b></div><div class="panel-stat"><small>Xét duyệt</small><b>Theo điều kiện</b></div></div>
+<div class="search"><input id="search" placeholder="Tìm Credy, Binixo, Cashspace..."><button id="searchBtn" type="button">TÌM</button></div>
+</div></div></section>
+
+<section class="stats-strip"><div class="container stats-grid">
+<div class="stat-item"><b>6+</b><span>Đối tác tham khảo</span></div><div class="stat-item"><b>100%</b><span>Trực tuyến</span></div><div class="stat-item"><b>24/7</b><span>Truy cập website</span></div><div class="stat-item"><b>✓</b><span>Miễn phí tham khảo</span></div>
+</div></section>
+
+<section class="section" id="offers"><div class="container">
+<div class="section-head"><div class="eyebrow">FEATURED PARTNERS</div><h2>Đối tác nổi bật</h2><div class="underline"></div><p>Tham khảo thông tin và chọn sản phẩm phù hợp trước khi đăng ký.</p></div>
+<div class="filters"><button class="filter active" data-filter="all">Tất cả</button><button class="filter" data-filter="online">Khoản vay online</button><button class="filter" data-filter="fast">Đăng ký nhanh</button></div>
+<div class="cards" id="cards"><article class="card" data-category="online fast" data-search="credy khoản vay online"><span style="position:absolute;right:12px;top:11px;background:#FFFFFF0f2;color:#e5485d;padding:3px 6px;border-radius:4px;font-size:7px;font-weight:800">NỔI BẬT</span><div class="card-top"><span class="tag">Khoản vay online</span><span class="rating">★ 4.8</span></div><div class="brand"><div class="brand-icon">CR</div><h3>Credy</h3></div><p class="desc">Đăng ký trực tuyến và tham khảo điều kiện của đối tác.</p><div class="info-grid"><div class="info"><small>Hình thức</small><b>Online</b></div><div class="info"><small>Hồ sơ</small><b>Tùy điều kiện</b></div><div class="info"><small>Thời gian</small><b>24/7</b></div><div class="info"><small>Xét duyệt</small><b>Theo đối tác</b></div></div><a class="card-btn" href="https://rdr.pdlsd.net/in/offer/2988?aid=113860" target="_blank" rel="nofollow sponsored noopener">XEM & ĐĂNG KÝ →</a></article><article class="card" data-category="online" data-search="credilo khoản vay online"><div class="card-top"><span class="tag">Khoản vay online</span><span class="rating">★ 4.7</span></div><div class="brand"><div class="brand-icon">CL</div><h3>Credilo</h3></div><p class="desc">Đăng ký trực tuyến và tham khảo điều kiện của đối tác.</p><div class="info-grid"><div class="info"><small>Hình thức</small><b>Online</b></div><div class="info"><small>Hồ sơ</small><b>Tùy điều kiện</b></div><div class="info"><small>Thời gian</small><b>24/7</b></div><div class="info"><small>Xét duyệt</small><b>Theo đối tác</b></div></div><a class="card-btn" href="https://rdr.pdlsd.net/in/offer/2929?aid=113860" target="_blank" rel="nofollow sponsored noopener">XEM & ĐĂNG KÝ →</a></article><article class="card" data-category="online" data-search="mazilla khoản vay online"><div class="card-top"><span class="tag">Khoản vay online</span><span class="rating">★ 4.7</span></div><div class="brand"><div class="brand-icon">MZ</div><h3>Mazilla</h3></div><p class="desc">Đăng ký trực tuyến và tham khảo điều kiện của đối tác.</p><div class="info-grid"><div class="info"><small>Hình thức</small><b>Online</b></div><div class="info"><small>Hồ sơ</small><b>Tùy điều kiện</b></div><div class="info"><small>Thời gian</small><b>24/7</b></div><div class="info"><small>Xét duyệt</small><b>Theo đối tác</b></div></div><a class="card-btn" href="https://rdr.pdlsd.net/in/offer/2930?aid=113860" target="_blank" rel="nofollow sponsored noopener">XEM & ĐĂNG KÝ →</a></article><article class="card" data-category="online fast" data-search="cashonline khoản vay online"><div class="card-top"><span class="tag">Khoản vay online</span><span class="rating">★ 4.6</span></div><div class="brand"><div class="brand-icon">CO</div><h3>Cashonline</h3></div><p class="desc">Đăng ký trực tuyến và tham khảo điều kiện của đối tác.</p><div class="info-grid"><div class="info"><small>Hình thức</small><b>Online</b></div><div class="info"><small>Hồ sơ</small><b>Tùy điều kiện</b></div><div class="info"><small>Thời gian</small><b>24/7</b></div><div class="info"><small>Xét duyệt</small><b>Theo đối tác</b></div></div><a class="card-btn" href="https://rdr.pdlsd.net/in/offer/8508?aid=113860" target="_blank" rel="nofollow sponsored noopener">XEM & ĐĂNG KÝ →</a></article><article class="card" data-category="online" data-search="cashspace khoản vay online"><div class="card-top"><span class="tag">Khoản vay online</span><span class="rating">★ 4.7</span></div><div class="brand"><div class="brand-icon">CS</div><h3>Cashspace</h3></div><p class="desc">Đăng ký trực tuyến và tham khảo điều kiện của đối tác.</p><div class="info-grid"><div class="info"><small>Hình thức</small><b>Online</b></div><div class="info"><small>Hồ sơ</small><b>Tùy điều kiện</b></div><div class="info"><small>Thời gian</small><b>24/7</b></div><div class="info"><small>Xét duyệt</small><b>Theo đối tác</b></div></div><a class="card-btn" href="https://rdr.pdlsd.net/in/offer/3182?aid=113860" target="_blank" rel="nofollow sponsored noopener">XEM & ĐĂNG KÝ →</a></article><article class="card" data-category="online fast" data-search="binixo khoản vay online"><span style="position:absolute;right:12px;top:11px;background:#FFFFFF0f2;color:#e5485d;padding:3px 6px;border-radius:4px;font-size:7px;font-weight:800">NỔI BẬT</span><div class="card-top"><span class="tag">Khoản vay online</span><span class="rating">★ 4.6</span></div><div class="brand"><div class="brand-icon">BX</div><h3>Binixo</h3></div><p class="desc">Đăng ký trực tuyến và tham khảo điều kiện của đối tác.</p><div class="info-grid"><div class="info"><small>Hình thức</small><b>Online</b></div><div class="info"><small>Hồ sơ</small><b>Tùy điều kiện</b></div><div class="info"><small>Thời gian</small><b>24/7</b></div><div class="info"><small>Xét duyệt</small><b>Theo đối tác</b></div></div><a class="card-btn" href="https://rdr.pdlsd.net/in/offer/2785?aid=113860" target="_blank" rel="nofollow sponsored noopener">XEM & ĐĂNG KÝ →</a></article></div><div class="note">Thông tin trên website chỉ mang tính chất tham khảo. Hạn mức, chi phí, điều kiện và khả năng xét duyệt có thể khác nhau theo từng đối tác và hồ sơ khách hàng.</div>
+</div></section>
+
+<section class="section compare" id="compare"><div class="container"><div class="section-head"><div class="eyebrow">QUICK COMPARISON</div><h2>So sánh nhanh</h2><div class="underline"></div><p>Xem nhanh các tiêu chí cơ bản của từng đối tác.</p></div><div class="table-wrap"><table><thead><tr><th>Đối tác</th><th>Loại</th><th>Đăng ký</th><th>Trạng thái</th><th></th></tr></thead><tbody><tr><td><strong>Credy</strong></td><td>Khoản vay online</td><td>Trực tuyến</td><td style="color:#08a66a">● Đối tác</td><td><a class="table-btn" href="https://rdr.pdlsd.net/in/offer/2988?aid=113860" target="_blank" rel="nofollow sponsored noopener">Xem →</a></td></tr><tr><td><strong>Credilo</strong></td><td>Khoản vay online</td><td>Trực tuyến</td><td style="color:#08a66a">● Đối tác</td><td><a class="table-btn" href="https://rdr.pdlsd.net/in/offer/2929?aid=113860" target="_blank" rel="nofollow sponsored noopener">Xem →</a></td></tr><tr><td><strong>Mazilla</strong></td><td>Khoản vay online</td><td>Trực tuyến</td><td style="color:#08a66a">● Đối tác</td><td><a class="table-btn" href="https://rdr.pdlsd.net/in/offer/2930?aid=113860" target="_blank" rel="nofollow sponsored noopener">Xem →</a></td></tr><tr><td><strong>Cashonline</strong></td><td>Khoản vay online</td><td>Trực tuyến</td><td style="color:#08a66a">● Đối tác</td><td><a class="table-btn" href="https://rdr.pdlsd.net/in/offer/8508?aid=113860" target="_blank" rel="nofollow sponsored noopener">Xem →</a></td></tr><tr><td><strong>Cashspace</strong></td><td>Khoản vay online</td><td>Trực tuyến</td><td style="color:#08a66a">● Đối tác</td><td><a class="table-btn" href="https://rdr.pdlsd.net/in/offer/3182?aid=113860" target="_blank" rel="nofollow sponsored noopener">Xem →</a></td></tr><tr><td><strong>Binixo</strong></td><td>Khoản vay online</td><td>Trực tuyến</td><td style="color:#08a66a">● Đối tác</td><td><a class="table-btn" href="https://rdr.pdlsd.net/in/offer/2785?aid=113860" target="_blank" rel="nofollow sponsored noopener">Xem →</a></td></tr></tbody></table></div></div></section>
+
+<section class="section" id="how"><div class="container"><div class="section-head"><div class="eyebrow">HOW IT WORKS</div><h2>Đơn giản trong 3 bước</h2><div class="underline"></div></div><div class="steps"><div class="step"><div class="step-no">01</div><h3>Chọn đối tác phù hợp</h3><p>Xem thông tin và điều kiện của các sản phẩm đang hiển thị.</p></div><div class="step"><div class="step-no">02</div><h3>Đăng ký online</h3><p>Đi tới website đối tác và thực hiện quy trình đăng ký trực tuyến.</p></div><div class="step"><div class="step-no">03</div><h3>Kiểm tra kết quả</h3><p>Kết quả xét duyệt phụ thuộc vào hồ sơ và tiêu chí của đối tác.</p></div></div></div></section>
+
+<section class="section" id="faq"><div class="container"><div class="section-head"><div class="eyebrow">FAQ</div><h2>Câu hỏi thường gặp</h2><div class="underline"></div></div><div class="faq">
+<details class="faq-item"><summary>Website có trực tiếp cho vay không?</summary><p>Không. Đây là nền tảng tham khảo và cung cấp liên kết tới các đối tác.</p></details>
+<details class="faq-item"><summary>Có chắc chắn được duyệt khoản vay không?</summary><p>Không. Việc xét duyệt phụ thuộc vào hồ sơ và tiêu chí của từng đối tác.</p></details>
+<details class="faq-item"><summary>Điều kiện của các đối tác có giống nhau không?</summary><p>Không. Mỗi đối tác có thể có điều kiện, chi phí và quy trình riêng.</p></details>
+<details class="faq-item"><summary>Các liên kết có thể là affiliate không?</summary><p>Một số liên kết trên website có thể là liên kết tiếp thị liên kết.</p></details>
+</div></div></section>
+
+<section class="section" id="about"><div class="container"><div class="about"><div class="eyebrow" style="color:#aaa2ff">VỀ CHÚNG TÔI</div><h2>Thông tin rõ ràng để bạn lựa chọn chủ động</h2><p>Website tổng hợp thông tin sản phẩm vay online để người dùng dễ dàng tham khảo. Website không trực tiếp cho vay và không đảm bảo kết quả xét duyệt.</p></div></div></section>
+
+<footer><div class="container"><div class="footer-grid"><div><h3>VayOnline</h3><p>Nền tảng tham khảo và so sánh các đối tác khoản vay online.</p></div><div><h4>Khám phá</h4><a href="#offers">Đối tác</a><a href="#compare">So sánh</a><a href="#how">Cách hoạt động</a></div><div><h4>Thông tin</h4><a href="#faq">FAQ</a><a href="#about">Về chúng tôi</a><a href="#">Chính sách bảo mật</a></div></div><div class="copy">© 2026 VayOnline. Thông tin trên website chỉ mang tính tham khảo. Một số liên kết có thể là liên kết affiliate.</div></div></footer>
+
+<script>
+(()=>{const input=document.getElementById('search'),btn=document.getElementById('searchBtn'),cards=[...document.querySelectorAll('.card')],filters=[...document.querySelectorAll('.filter')];let f='all';
+function render(){const q=(input.value||'').toLowerCase().trim();cards.forEach(c=>c.style.display=((f==='all'||c.dataset.category.includes(f))&&(!q||c.dataset.search.includes(q)))?'':'none')}
+input.addEventListener('input',render);btn.addEventListener('click',render);filters.forEach(x=>x.addEventListener('click',()=>{filters.forEach(y=>y.classList.remove('active'));x.classList.add('active');f=x.dataset.filter;render()}));})();
+</script>
+</body></html>
